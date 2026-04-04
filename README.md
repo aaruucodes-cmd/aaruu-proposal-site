@@ -3,422 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be Mine? 💕</title>
+    <title>To My Love Sanskriti 💕 - Will You Forgive Me?</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fecfef, #ff6b9d);
+            background-size: 400% 400%;
+            animation: loveGradient 15s ease infinite;
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        @keyframes loveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: clamp(1rem, 3vw, 2rem);
+            animation: float 6s linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: clamp(1rem, 5vh, 2rem);
+            position: relative;
+            z-index: 10;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-            padding: 20px;
         }
-
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            animation: slideIn 0.6s ease-out;
+        
+        .card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: clamp(1.5rem, 4vh, 3rem);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: slideUp 1s ease;
         }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-
-        .heart {
-            font-size: 60px;
-            margin-bottom: 20px;
-            animation: heartBeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartBeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1.2); }
-        }
-
+        
         h1 {
-            color: #e74c3c;
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: #fff;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(255,105,180,0.8);
         }
-
-        .subtitle {
-            color: #764ba2;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            font-style: italic;
+        
+        .sorry-section {
+            background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
         }
-
-        .rose-border {
-            border-top: 3px solid #e74c3c;
-            border-bottom: 3px solid #e74c3c;
-            padding: 20px 0;
-            margin: 30px 0;
+        
+        .sorry-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            color: #fff;
+            margin-bottom: 1rem;
         }
-
-        .message {
-            color: #555;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .buttons-container {
+        
+        .love-messages {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
         }
-
-        button {
-            padding: 15px 40px;
-            font-size: 1.1em;
+        
+        .message {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #ff69b4;
+            animation: messagePop 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .message:nth-child(1) { animation-delay: 0.1s; }
+        .message:nth-child(2) { animation-delay: 0.2s; }
+        .message:nth-child(3) { animation-delay: 0.3s; }
+        .message:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes messagePop {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .games-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .game-card {
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff69b4;
+            box-shadow: 0 15px 30px rgba(255,105,180,0.4);
+        }
+        
+        .proposal-btn {
+            padding: 1.5rem 3rem;
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            background: linear-gradient(45deg, #ff4081, #f50057);
+            color: #fff;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: 0 15px 35px rgba(255,64,129,0.5);
+            transition: all 0.4s ease;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            display: block;
+            margin: 2rem auto 0;
         }
-
-        .yes-btn {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        
+        .proposal-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 25px 45px rgba(255,64,129,0.7);
         }
-
-        .yes-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
-        }
-
-        .yes-btn:active {
-            transform: scale(0.98);
-        }
-
-        .no-btn {
-            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
-            color: white;
-            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.4);
-            position: relative;
-        }
-
-        .no-btn:hover {
-            transform: translate(20px, -20px);
-            box-shadow: 0 8px 20px rgba(149, 165, 166, 0.6);
-        }
-
-        .games-section {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 30px;
-        }
-
-        .games-title {
-            color: #764ba2;
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .game {
-            margin-bottom: 20px;
-        }
-
-        .game-label {
-            color: #555;
-            font-size: 0.95em;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .love-meter {
-            width: 100%;
-            height: 20px;
-            background: #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .love-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #e74c3c, #f39c12);
-            width: 0%;
-            transition: width 0.5s ease;
-            border-radius: 10px;
-        }
-
-        .luck-wheel {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
-            background: conic-gradient(#e74c3c 0deg 90deg, #f39c12 90deg 180deg, #e74c3c 180deg 270deg, #f39c12 270deg 360deg);
-            border-radius: 50%;
-            display: flex;
+        
+        /* Games */
+        .game-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.8);
+            display: none;
             justify-content: center;
             align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        
+        .game-content {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 2rem;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: auto;
+            color: #333;
+            text-align: center;
+        }
+        
+        .hearts-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .heart-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 2rem;
+            border: none;
+            border-radius: 15px;
             cursor: pointer;
-            font-weight: 700;
-            color: white;
-            font-size: 1.2em;
-            transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
         }
-
-        .luck-wheel:hover {
-            transform: scale(1.05) rotate(10deg);
+        
+        .heart-btn.matched {
+            background: linear-gradient(135deg, #ff6b9d, #ff4081);
+            transform: scale(1.1);
         }
-
-        .luck-wheel:active {
-            animation: spin 0.5s linear;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .confetti {
-            position: fixed;
-            pointer-events: none;
-            font-size: 2em;
-        }
-
-        .success-message {
-            color: #e74c3c;
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-top: 20px;
-            animation: bounce 0.6s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .flower {
-            display: inline-block;
-            margin: 0 5px;
-            animation: sway 2s ease-in-out infinite;
-        }
-
-        @keyframes sway {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .heart {
-                font-size: 50px;
-            }
-            button {
-                padding: 12px 30px;
-                font-size: 0.95em;
-            }
-            .buttons-container {
-                gap: 15px;
-            }
-            .message {
-                font-size: 1em;
-            }
-        }
-
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
+        
+        /* Mobile perfect */
+        @media (max-width: 480px) {
+            .container { padding: 1rem; }
+            .games-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <div class="hearts-bg" id="heartsBg"></div>
+    
     <div class="container">
-        <div class="heart">💕</div>
-        <h1>Will You Be Mine?</h1>
-        <p class="subtitle">A Special Question from Someone Special 💌</p>
+        <div class="card">
+            <h1>💖 Sanskriti 💖</h1>
+            <p style="font-size: clamp(1.1rem, 4vw, 1.4rem);">My dearest love, my everything...</p>
+        </div>
         
-        <div class="rose-border">
-            <p class="message">
-                You make every day special. Your smile lights up my world, and every moment with you feels like a dream. 
-                <br><br>
-                I can't imagine life without you. So what do you say... 
-                <span class="flower">🌹</span>
+        <div class="card sorry-section">
+            <h2>I'm So Sorry 😔</h2>
+            <p style="font-size: clamp(1rem, 3.5vw, 1.3rem); line-height: 1.6;">
+                Sanskriti, please forgive me for hurting you. 
+                <br>I promise to be better, to love you more fiercely every day.
+                <br>You mean the world to me ❤️
             </p>
         </div>
-
-        <div class="buttons-container">
-            <button class="yes-btn" onclick="handleYes()">YES! 💕</button>
-            <button class="no-btn" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
-        </div>
-
-        <div id="successMessage"></div>
-
-        <div class="games-section">
-            <p class="games-title">🎮 Play a Game: How Much Do You Love Me?</p>
-            
-            <div class="game">
-                <p class="game-label">Click the heart to fill the love meter:</p>
-                <div class="love-meter">
-                    <div class="love-fill" id="loveFill"></div>
+        
+        <div class="card">
+            <h2>💕 Love Messages 💕</h2>
+            <div class="love-messages">
+                <div class="message">
+                    "You make my heart smile brighter than the sun 🌞"
                 </div>
-                <button onclick="increaseLove()" style="background: #e74c3c; color: white; padding: 8px 20px; font-size: 0.9em; margin-top: 10px;">
-                    ❤️ Add Love
-                </button>
+                <div class="message">
+                    "Every moment with you feels like a dream 💭"
+                </div>
+                <div class="message">
+                    "You're my forever, my always, my everything ✨"
+                </div>
+                <div class="message">
+                    "I love you more than words can express 💖"
+                </div>
             </div>
-
-            <div class="game">
-                <p class="game-label">Spin the Wheel of Destiny:</p>
-                <div class="luck-wheel" onclick="spinWheel()">SPIN!</div>
-                <p id="wheelResult" style="margin-top: 15px; font-size: 0.95em; color: #555; min-height: 20px;"></p>
+        </div>
+        
+        <div class="card">
+            <h2>🎮 Play With Me 🎮</h2>
+            <div class="games-section">
+                <div class="game-card" onclick="openGame('hearts')">
+                    <div style="font-size: 3rem;">💕</div>
+                    <h3>Match Hearts</h3>
+                </div>
+                <div class="game-card" onclick="openGame('memory')">
+                    <div style="font-size: 3rem;">🧠</div>
+                    <h3>Memory Game</h3>
+                </div>
             </div>
+        </div>
+        
+        <button class="proposal-btn" onclick="finalProposal()">
+            💍 Forgive Me & Be Mine Forever? 💍
+        </button>
+    </div>
+    
+    <!-- Games Overlay -->
+    <div class="game-overlay" id="gameOverlay">
+        <div class="game-content">
+            <h2 id="gameTitle"></h2>
+            <div id="gameArea"></div>
+            <button onclick="closeGame()" style="margin-top: 1rem; padding: 0.8rem 1.5rem; background: #ff69b4; color: white; border: none; border-radius: 25px; cursor: pointer;">Close ❤️</button>
         </div>
     </div>
-
+    
     <script>
-        const noBtn = document.getElementById('noBtn');
-        let noButtonClicks = 0;
-
-        function moveButton() {
-            const randomX = (Math.random() - 0.5) * 200;
-            const randomY = (Math.random() - 0.5) * 150;
-            
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
-            noButtonClicks++;
-
-            if (noButtonClicks === 5) {
-                alert("Why are you running away? 😂 Just say YES already!");
-            }
-            if (noButtonClicks === 10) {
-                alert("I see you're having fun! But you know what... YES is the only correct answer! 😉");
-            }
+        // Floating hearts background
+        const hearts = '💖💕💗💝🌸🌺🌹'.split('');
+        for(let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('heartsBg').appendChild(heart);
         }
-
-        function handleYes() {
-            document.querySelector('.container').style.animation = 'pulse 0.6s ease';
-            createConfetti();
+        
+        // Love messages animation
+        setTimeout(() => {
+            document.querySelectorAll('.message').forEach(msg => {
+                msg.style.opacity = '1';
+            });
+        }, 500);
+        
+        function openGame(type) {
+            const overlay = document.getElementById('gameOverlay');
+            const title = document.getElementById('gameTitle');
+            const area = document.getElementById('gameArea');
             
-            const successMsg = document.getElementById('successMessage');
-            successMsg.innerHTML = `
-                <div class="success-message">
-                    🎉 YES!!! You Made Me The Happiest! 🎉
-                    <br><br>
-                    I Love You So Much! 💕
-                    <br>
-                    <span class="flower">🌹</span>
-                    <span class="flower">🌹</span>
-                    <span class="flower">🌹</span>
-                </div>
-            `;
-            
-            setTimeout(() => {
-                alert("You're the best decision I could ever hope for! Let's celebrate! 🥂💕");
-            }, 1000);
-        }
-
-        function createConfetti() {
-            const confettiPieces = ['🎉', '💕', '🌹', '✨', '💐', '🎊', '💑', '👑'];
-            
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.textContent = confettiPieces[Math.floor(Math.random() * confettiPieces.length)];
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = '-20px';
-                confetti.style.opacity = Math.random();
-                
-                document.body.appendChild(confetti);
-                
-                const duration = 2 + Math.random() * 1;
-                const xMove = (Math.random() - 0.5) * 200;
-                
-                confetti.animate([
-                    { transform: 'translateY(0px) translateX(0px) rotate(0deg)', opacity: 1 },
-                    { transform: `translateY(${window.innerHeight}px) translateX(${xMove}px) rotate(360deg)`, opacity: 0 }
-                ], {
-                    duration: duration * 1000,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            if(type === 'hearts') {
+                title.textContent = '💕 Match the Hearts 💕';
+                area.innerHTML = `
+                    <div class="hearts-game" id="heartsGame">
+                        <button class="heart-btn" data-match="1">💖</button>
+                        <button class="heart-btn" data-match="1">💖</button>
+                        <button class="heart-btn" data-match="2">💕</button>
+                        <button class="heart-btn" data-match="2">💕</button>
+                        <button class="heart-btn" data-match="3">💗</button>
+                        <button class="heart-btn" data-match="3">💗</button>
+                    </div>
+                    <p>Click matching hearts! Perfect score for my perfect love 💕</p>
+                `;
+                document.querySelectorAll('.heart-btn').forEach(btn => {
+                    btn.onclick = () => {
+                        const match = btn.dataset.match;
+                        document.querySelectorAll(`[data-match="${match}"]`).forEach(b => {
+                            b.classList.add('matched');
+                            b.disabled = true;
+                        });
+                    };
                 });
-                
-                setTimeout(() => confetti.remove(), duration * 1000);
             }
-        }
-
-        let loveLevel = 0;
-
-        function increaseLove() {
-            loveLevel = Math.min(loveLevel + 15, 100);
-            document.getElementById('loveFill').style.width = loveLevel + '%';
             
-            if (loveLevel === 100) {
-                alert("OMG! The love meter is FULL! That's all the love in the world! 💕💕💕");
+            overlay.style.display = 'flex';
+        }
+        
+        function closeGame() {
+            document.getElementById('gameOverlay').style.display = 'none';
+        }
+        
+        function finalProposal() {
+            alert('💖 Sanskriti, I love you forever! Will you forgive me and be mine? 💍');
+            confetti();
+        }
+        
+        // Simple confetti
+        function confetti() {
+            for(let i = 0; i < 50; i++) {
+                const c = document.createElement('div');
+                c.innerHTML = '💖';
+                c.style.position = 'fixed';
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.top = '0';
+                c.style.pointerEvents = 'none';
+                c.style.fontSize = '20px';
+                c.style.zIndex = '999';
+                c.style.animation = 'fall 3s linear forwards';
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 3000);
             }
         }
-
-        function spinWheel() {
-            const outcomes = [
-                "You will DEFINITELY say Yes! 💯",
-                "True Love is in your destiny! 💕",
-                "The stars align for us! ✨",
-                "Soulmates detected! 🎯",
-                "Forever starts today! 👑",
-                "My heart chose you! 💗",
-                "Fate brought us together! 🌟",
-                "You're my everything! 💑"
-            ];
-            
-            const randomIndex = Math.floor(Math.random() * outcomes.length);
-            document.getElementById('wheelResult').textContent = outcomes[randomIndex];
-        }
-
-        let clickCount = 0;
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                clickCount++;
-                if (clickCount === 3) {
-                    alert("Psst... I think you should click YES! 😉💕");
-                    clickCount = 0;
-                }
-            }
-        });
-
+        
+        // CSS for confetti
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes pulse {
-                0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.02); }
+            @keyframes fall {
+                to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
             }
         `;
         document.head.appendChild(style);
     </script>
 </body>
 </html>
+
